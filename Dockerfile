@@ -3,7 +3,7 @@ FROM openjdk:16-jdk-alpine
 WORKDIR /usr/app
 
 RUN apk add curl
-RUN curl https://launcher.mojang.com/v1/objects/fc87ef4c3cf1c815809249cc00ccade233b22cf5/server.jar -o server.jar
+RUN curl https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar -o server.jar
 COPY eula.txt .
 COPY server.properties .
 
