@@ -3,7 +3,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /usr/app
 
 RUN apk add curl
-RUN curl https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar -o server.jar
+RUN curl https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar -o server.jar
 COPY eula.txt .
 COPY server.properties .
 
