@@ -1,9 +1,11 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:21-jdk-slim
 
 WORKDIR /usr/app
 
-RUN apk add curl
-RUN curl https://piston-data.mojang.com/v1/objects/5b868151bd02b41319f54c8d4061b8cae84e665c/server.jar -o server.jar
+RUN apt update && apt install curl -y
+
+RUN curl https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar -o server.jar
+
 COPY eula.txt .
 COPY server.properties .
 

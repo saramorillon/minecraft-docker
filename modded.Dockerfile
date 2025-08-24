@@ -1,11 +1,11 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:21-jdk-slim
 
 WORKDIR /usr/app
 
-RUN apk add curl
+RUN apt update && apt install curl -y
 
-RUN curl https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.2-48.1.0/forge-1.20.2-48.1.0-installer.jar -o forge.jar
-RUN curl https://piston-data.mojang.com/v1/objects/5b868151bd02b41319f54c8d4061b8cae84e665c/server.jar -o server.jar
+RUN curl https://maven.minecraftforge.net/net/minecraftforge/forge/1.21-51.0.33/forge-1.21-51.0.33-installer.jar -o forge.jar
+RUN curl https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar -o server.jar
 
 COPY eula.txt .
 COPY server.properties .
