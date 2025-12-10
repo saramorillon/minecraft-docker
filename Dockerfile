@@ -1,10 +1,8 @@
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /usr/app
 
-RUN apt update && apt install curl -y
-
-RUN curl https://piston-data.mojang.com/v1/objects/11e54c2081420a4d49db3007e66c80a22579ff2a/server.jar -o server.jar
+RUN wget https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar -O server.jar
 
 COPY eula.txt .
 COPY server.properties .

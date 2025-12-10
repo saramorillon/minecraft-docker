@@ -1,11 +1,9 @@
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /usr/app
 
-RUN apt update && apt install curl -y
-
-RUN curl https://maven.minecraftforge.net/net/minecraftforge/forge/1.21-51.0.33/forge-1.21-51.0.33-installer.jar -o forge.jar
-RUN curl https://piston-data.mojang.com/v1/objects/11e54c2081420a4d49db3007e66c80a22579ff2a/server.jar -o server.jar
+RUN wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.11-61.0.1/forge-1.21.11-61.0.1-installer.jar -O forge.jar
+RUN wget https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar -O server.jar
 
 COPY eula.txt .
 COPY server.properties .
